@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug">
+    <Appenders>
+
+
+        <Console name="LogToConsole" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+        </Console>
+
+        <RollingFile name="RollingFileInfo" fileName="./logs/app.log" filePattern="./logs/app-%d{MM-dd-yyyy}.log.gz">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+                <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10" />
+        </RollingFile>
+
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="RollingFileInfo"/>
+            <AppenderRef ref="LogToConsole"/>
+        </Root>
+        <Logger name="org.hibernate" level="INFO"/>
+        <Logger name="org.springframework" level="INFO"/>
+        <Logger name="org.apache.logging.*" level="DEBUG"/>
+        <logger name="org.springframework.core.io.support" level="DEBUG"/>
+        <logger name="org.springframework.context.annotation" level="DEBUG"/>
+    </Loggers>
+</Configuration>
