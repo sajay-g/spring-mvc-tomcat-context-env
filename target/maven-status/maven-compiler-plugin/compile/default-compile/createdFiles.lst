@@ -1,7 +1,0 @@
-com\aa\vnet\config\DBConfig.class
-com\aa\vnet\MainApplication.class
-com\aa\vnet\entity\Employee.class
-com\aa\vnet\entity\Station.class
-com\aa\vnet\repository\StationRepo.class
-com\aa\vnet\repository\EmployeeRep.class
-com\aa\vnet\controller\TestController.class
