@@ -14,6 +14,10 @@ public class PropertyConfig
     {
         PropertyComponent propertyComponent = new PropertyComponent();
         String profile = System.getenv("spring.profiles.active");
+        if(profile == null)
+        {
+            throw new RuntimeException("Profile value is not available");
+        }
         log.info("profile "+profile);
         propertyComponent.setProperty(profile);
         return propertyComponent;
